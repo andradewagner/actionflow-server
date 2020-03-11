@@ -1,0 +1,35 @@
+{
+  "name": "actionflow-server",
+  "version": "1.0.0",
+  "description": "An automated test tool monitoring",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/andradewagner/actionflow-server.git"
+  },
+  "keywords": [
+    "actionflow",
+    "qa",
+    "monitoring",
+    "automation"
+  ],
+  "author": "Wagner Andrade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andradewagner/actionflow-server/issues"
+  },
+  "homepage": "https://github.com/andradewagner/actionflow-server#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
