@@ -7,7 +7,7 @@ const testRouter = require('./routes/test-router')
 const app = express()
 const apiPort = 3001
 
-app.use(fileUpload())
+app.use(fileUpload({ useTempFiles: true, tempFileDir: '/tmp/' }))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(bodyParser.json())

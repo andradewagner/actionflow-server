@@ -9,5 +9,6 @@ router.put('/test/:id', TestCtrl.updateTest)
 router.delete('/test/:id', TestCtrl.deleteTest)
 router.get('/test/:id', TestCtrl.getTestById)
 router.get('/tests', TestCtrl.getTests)
+router.post('/upload', TestCtrl.uploadFile)
 
 module.exports = router

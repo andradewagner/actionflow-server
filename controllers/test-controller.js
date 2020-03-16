@@ -116,10 +116,26 @@ getTests = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+uploadFile = async (req, res) => {
+    if (req.files.foo.size === 0) {
+        return res.status(400).send('No files were uploaded.');
+    }
+
+    let file = req.files.foo
+
+    file.mv('/home/wagner/tmp/teste.jpg', function(err) {
+        if(err)
+            return res.status(500).send(err);
+
+        res.status(200).json({ success: true })
+    })
+}
+
 module.exports = {
     createTest,
     updateTest,
     deleteTest,
     getTests,
     getTestById,
+    uploadFile,
 }
