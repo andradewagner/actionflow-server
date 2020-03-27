@@ -4,8 +4,15 @@ const Schema = mongoose.Schema
 const AutoTest = new Schema (
     {
         app: { type: String, required: true },
-        feature: { type: String, required: true },
-        exectionTime: { type: Number, required: true },
+        features: [
+            { 
+                name: String, 
+                exectionTime: Number, 
+                screenshot: String,
+                status: String,
+                log: [String]
+            }
+        ],
     },
     { timestamps: true },
 )
