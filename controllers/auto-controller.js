@@ -33,6 +33,21 @@ create = (req, res) => {
         })
 }
 
+getAutoById = async (req, res) => {
+    await Auto.findOne({ _id: req.params.id }, (err, auto) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+
+        if (!auto) {
+            return res
+                .status(404)
+                .json({ success: false, error: `Automation not found` })
+        }
+        return res.status(200).json({ success: true, data: auto })
+    }).catch(err => console.log(err))
+}
+
 list = async (req, res) => {
     await Auto.find({}, (err, autos) => {
         if (err) {
@@ -66,4 +81,5 @@ module.exports = {
     create,
     list,
     uploadFile,
+    getAutoById,
 }

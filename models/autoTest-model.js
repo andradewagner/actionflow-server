@@ -13,6 +13,7 @@ const AutoTest = new Schema (
                 log: [String]
             }
         ],
+        status: { type: Boolean, require: true }
     },
     { timestamps: true },
 )
