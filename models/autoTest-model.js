@@ -7,7 +7,7 @@ const AutoTest = new Schema (
         features: [
             { 
                 name: String, 
-                exectionTime: Number, 
+                executionTime: Number, 
                 screenshot: String,
                 status: String,
                 log: [String]
