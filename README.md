@@ -6,9 +6,9 @@ Necessário clonar o frontend da aplicaçao para executar corretamente.
 
 ### `npm start`
 
-## Apis expostas:
+# Apis expostas:
 
-# http://localhost:3001/api/auto
+## http://localhost:3001/api/auto
 
 Cadastra um novo teste. Corpo da requisiçao:
 
