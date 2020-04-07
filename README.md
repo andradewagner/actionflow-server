@@ -12,7 +12,10 @@ Necessário clonar o frontend da aplicaçao para executar corretamente.
 
 Cadastra um novo teste. Corpo da requisiçao:
 
-Método POST:
+Método: POST
+
+Body:
+```json
 {
     "app": "CNP",
     "features": [
@@ -24,6 +27,7 @@ Método POST:
     	{"name": "Extrato", "executionTime": 2, "screenshot": "", "status": "notprocessed", "log": ["pdf"]}
     ]
 }
+```
 
 ## http://localhost:3001/api/upload
 
