@@ -69,12 +69,14 @@ uploadFile = async (req, res) => {
 
     let file = req.files.screenshot
 
-    file.mv('/home/wagner/tmp/teste.jpg', function(err) {
+    /* file.mv('/home/wagner/tmp/teste.jpg', function(err) {
         if(err)
             return res.status(500).send(err);
 
         res.status(200).json({ success: true })
-    })
+    }) */
+    console.log(req);
+    res.status(200).json({ req });
 }
 
 module.exports = {

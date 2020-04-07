@@ -117,16 +117,18 @@ getTests = async (req, res) => {
 }
 
 uploadFile = async (req, res) => {
-    if (req.files.foo.size === 0) {
+    if (req.files.archive.size === 0) {
         return res.status(400).send('No files were uploaded.');
     }
 
-    let file = req.files.foo
+    let file = req.files.archive
 
     file.mv('/home/wagner/tmp/teste.jpg', function(err) {
         if(err)
             return res.status(500).send(err);
 
+        console.log(req);
+        console.log(req.files.archive.name);
         res.status(200).json({ success: true })
     })
 }
