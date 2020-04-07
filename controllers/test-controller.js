@@ -123,12 +123,10 @@ uploadFile = async (req, res) => {
 
     let file = req.files.archive
 
-    file.mv('/home/wagner/tmp/teste.jpg', function(err) {
+    file.mv('/home/wagner/actionflow/actionflow-client/public/' + req.files.archive.name, function(err) {
         if(err)
             return res.status(500).send(err);
 
-        console.log(req);
-        console.log(req.files.archive.name);
         res.status(200).json({ success: true })
     })
 }
