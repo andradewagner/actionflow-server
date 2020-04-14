@@ -2,6 +2,11 @@ Aplicaçao Backend para centralizar execuçao de testes automatizados
 
 Necessário clonar o frontend da aplicaçao para executar corretamente.
 
+A aplicaçao utiliza a variável de ambiente NODE_ENV para carregar o arquivo de configuraçao. Os valores disponíveis sao:
+
+production
+development
+
 ## Scripts disponíveis
 
 ### `npm start`
