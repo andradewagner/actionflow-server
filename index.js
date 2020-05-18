@@ -13,15 +13,15 @@ const testRouter = require('./routes/test-router')
 const autoRouter = require('./routes/auto-router')
 const app = express()
 const apiPort = 3001
-let env = null
+const env = process.env.NODE_ENV === 'production' ? require('./env/development') : require('./env/development')
 
-if(process.env.NODE_ENV === 'production') {
-    env = require('./env/production')
-    console.log('Usando variáveis de producao')
-} else {
-    env = require('./env/development')
-    console.log('Usando variáveis de desenvolvimento')
-}
+// if(process.env.NODE_ENV === 'production') {
+//     env = require('./env/production')
+//     console.log('Usando variáveis de producao')
+// } else {
+//     env = require('./env/development')
+//     console.log('Usando variáveis de desenvolvimento')
+// }
 
 app.use(fileUpload({ useTempFiles: true, tempFileDir: '/tmp/' }))
 app.use(bodyParser.urlencoded({ extended: true }))
