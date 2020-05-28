@@ -44,6 +44,9 @@ getAutoById = async (req, res) => {
                 .status(404)
                 .json({ success: false, error: `Automation not found` })
         }
+
+        hook(res, auto);
+
         return res.status(200).json({ success: true, data: auto })
     }).catch(err => console.log(err))
 }
@@ -77,6 +80,26 @@ uploadFile = async (req, res) => {
     }) */
     console.log(req);
     res.status(200).json({ req });
+}
+
+hook = (res, auto) => {
+    let interval;
+    res.io.on('connection', (socket) => {
+        console.log("Nova conexao de " + auto.id);
+        if (interval) {
+            clearInterval(interval);
+        }
+        interval = setInterval(() => getApiAndEmit(socket), 1000);
+        socket.on("disconnect", () => {
+            console.log("desconectado de " + auto.id)
+            clearInterval(interval);
+        });
+    });
+
+    const getApiAndEmit = socket => {
+        const response = new Date();
+        socket.emit(auto.id, response);
+    };
 }
 
 module.exports = {
