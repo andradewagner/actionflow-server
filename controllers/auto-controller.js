@@ -33,6 +33,24 @@ create = (req, res) => {
         })
 }
 
+update = async (req, res) => {
+    await Auto.findByIdAndUpdate(req.params.id,  req.body , (err, auto) => {
+        if (err) {
+            return res.status(400).json({success: false, error: err})
+        }
+
+        if (!auto) {
+            return res
+                .status(404)
+                .json({ success: false, error: `Automation not found`})
+        }
+
+        hook(res, auto);
+
+        return res.status(200).json({ success: true, data: auto })
+    }).catch(err => console.log(err))
+}
+
 getAutoById = async (req, res) => {
     await Auto.findOne({ _id: req.params.id }, (err, auto) => {
         if (err) {
@@ -97,13 +115,13 @@ hook = (res, auto) => {
     });
 
     const getApiAndEmit = socket => {
-        const response = new Date();
-        socket.emit(auto.id, response);
+        socket.emit(auto.id, auto);
     };
 }
 
 module.exports = {
     create,
+    update,
     list,
     uploadFile,
     getAutoById,
